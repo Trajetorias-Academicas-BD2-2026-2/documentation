@@ -1,0 +1,13 @@
+{
+  "data_verificacao_paginas": "2026-10-05",
+  "censo": {
+    "id": "F4", "edicao": "2024",
+    "pagina": "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-da-educacao-superior",
+    "url": "https://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_2024.zip"
+  },
+  "trajetoria": {
+    "id": "F5", "edicao": "2015-2024",
+    "pagina": "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/indicadores-educacionais/indicadores-de-trajetoria-da-educacao-superior/2015-2023",
+    "url": "https://download.inep.gov.br/informacoes_estatisticas/indicadores_educacionais/indicadores_trajetoria_es_2015_2024.zip"
+  }
+}

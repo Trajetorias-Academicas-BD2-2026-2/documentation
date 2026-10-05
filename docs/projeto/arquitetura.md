@@ -13,10 +13,14 @@ flowchart TB
         F1[F1 · Alunos]
         F2[F2 · Turmas]
         F3[F3 · Componentes]
+        F4[F4 · Censo Inep]
+        F5[F5 · Trajetória Inep]
     end
-    F1 --> C[P1–P3 · Coleta]
+    F1 --> C[P1–P3 e P9–P10 · Coleta]
     F2 --> C
     F3 --> C
+    F4 --> C
+    F5 --> C
     C --> S3[(S3 · Originais CSV / JSON)]
     S3 --> P4[P4 · Validação e limpeza]
     P4 --> P5[P5 · Integração]
@@ -55,3 +59,16 @@ O bloco de cargas e as etapas de coleta pedem preservação dos originais; o tex
 Uma nova coleta deve gerar uma versão identificável dos dados. As validações de P4–P7 precedem a disponibilização ao dashboard. Se uma execução falhar, a proposta é manter a última versão validada e informar sua data, em vez de expor uma carga parcial.
 
 Os controles estão em [Qualidade e reprocessamento](../pipeline/qualidade.md). As metas de latência da planilha estão em [Cargas e engines](../dados/cargas-e-engines.md) e ainda não são resultados medidos.
+
+## Integração da extensão Inep
+
+F4 e F5 entram por P9 e P10 e convergem em P4–P7, sem mudar os IDs originais.
+`scripts/inep_pipeline.py` implementa coleta, inspeção, normalização, manifesto,
+relatório de qualidade e geração de SQL. As cargas no PostgreSQL são transacionais.
+O schema `inep` preserva a separação entre agregados anuais e dados locais semestrais.
+CSV e SQL são produzidos nesta versão; Parquet continua como exportação opcional.
+[Como executar](../pipeline/execucao-inep.md).
+
+A extensão foi verificada com dados sintéticos. Cargas oficiais, benchmark e
+conexão às telas do dashboard da equipe permanecem pendentes por falta de dados
+e código do dashboard no pacote recebido.

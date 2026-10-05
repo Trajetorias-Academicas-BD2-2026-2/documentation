@@ -20,26 +20,26 @@ Integramos o planejamento de dados de **alunos, turmas e componentes curriculare
 
 <div class="grid cards project-stats" markdown>
 
-- **3 fontes**
+- **5 fontes selecionadas**
 
-    Alunos, turmas e componentes curriculares.
+    Alunos, turmas, componentes, Censo e trajetórias do Inep.
 
-- **7 entidades**
+- **Modelo ampliado**
 
-    Modelo conceitual orientado às consultas.
+    Modelo local e seis tabelas adicionais no schema Inep.
 
-- **8 etapas**
+- **10 etapas**
 
     Da coleta ao consumo dos indicadores.
 
-- **1 decisão proposta**
+- **2 registros de decisão**
 
     PostgreSQL e Parquet, a validar com dados reais.
 
 </div>
 
 !!! info "Estágio do projeto: planejamento e validação"
-    Esta documentação consolida a planilha da equipe, versão 1.0. As tecnologias e o pipeline estão **propostos**; volumes, disponibilidade dos campos e resultados de desempenho ainda precisam ser medidos. Consulte a [origem do conteúdo](referencia/planilha.md) e o [plano de validação](projeto/plano-de-validacao.md).
+    Esta documentação consolida a planilha da equipe, versão 1.1. As tecnologias e o pipeline estão **propostos**; volumes, disponibilidade dos campos e resultados de desempenho ainda precisam ser medidos. Consulte a [origem do conteúdo](referencia/planilha.md) e o [plano de validação](projeto/plano-de-validacao.md).
 
 ## Duas perspectivas, uma base de dados
 
@@ -104,8 +104,8 @@ Integramos o planejamento de dados de **alunos, turmas e componentes curriculare
 ## Do dado ao apoio à decisão
 
 ```mermaid
-flowchart LR
-    A[Fontes UnB] --> B[Coleta e preservação]
+flowchart TB
+    A[Fontes UnB e Inep] --> B[Coleta e preservação]
     B --> C[Validação e integração]
     C --> D[(PostgreSQL e Parquet)]
     D --> E[Indicadores]
@@ -119,3 +119,10 @@ Fluxo planejado; a divisão entre os armazenamentos está descrita na [arquitetu
 Ana Joyce · Gustavo Alves · Gabriel Lima da Silva · Nathan Abreu · Guilherme Evangelista · Angélica · Davi Araújo
 
 *Sistemas de Banco de Dados 2 · Turma 3 · 2026.2 · FCTE/UnB.*
+
+## Comparação entre instituições
+
+A versão 1.1 acrescenta fontes nacionais, séries anuais e comparação de coortes.
+[Integração e fontes Inep](dados/integracao-inep.md) ·
+[Como executar a extensão](pipeline/execucao-inep.md).
+As rotinas e consultas estão incluídas; a carga oficial ainda precisa ser validada.

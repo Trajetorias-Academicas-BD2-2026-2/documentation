@@ -10,3 +10,7 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+data/raw/
+data/staging/
+config/mapa-*.json

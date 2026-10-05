@@ -1,7 +1,6 @@
 # Fontes de dados
 
-O projeto usa **três fontes externas**, todas provenientes do Portal de Dados Abertos da UnB
-(originadas no SIGAA). Nenhuma é gerada por usuários do sistema.
+O projeto passa a ter **cinco fontes selecionadas**: F1–F3 da UnB e F4–F5 publicados pelo Inep. F4–F5 ampliam a comparação entre cursos e instituições; sua carga real ainda depende do download e da validação dos arquivos.
 
 !!! note "Inventário declarado na planilha"
     As características abaixo reproduzem o planejamento da equipe. URLs específicas dos recursos, períodos cobertos, esquemas reais e tamanhos ainda não estão registrados. Vazão, pureza e previsibilidade são classificações da planilha, sem medições anexadas.
@@ -13,6 +12,8 @@ O projeto usa **três fontes externas**, todas provenientes do Portal de Dados A
 | F1 | Dados de alunos (SIGAA) | Sistema | CSV | Eventual / atualização periódica | Média | Média | Alta | Sim |
 | F2 | Turmas | Sistema | CSV | Semestral / eventual | Média | Alta | Alta | A confirmar |
 | F3 | Componente curricular | Sistema | CSV / JSON | Eventual / atualização periódica | Média | Alta | Alta | Não, se usados só dados curriculares |
+| F4 | Censo da Educação Superior | Terceiro | ZIP / CSV após inspeção | Anual / revisões | A medir | A validar | A validar | Agregados de curso/IES |
+| F5 | Indicadores de Trajetória | Terceiro | ZIP / tabela a conferir | Anual / revisões | A medir | A validar | A validar | Agregados de curso/coorte |
 
 !!! tip "Como ler as colunas"
     - **Vazão**: quantidade de dado que chega por unidade de tempo.
@@ -76,3 +77,15 @@ O projeto usa **três fontes externas**, todas provenientes do Portal de Dados A
 | F3 · Componentes | URL e cobertura temporal a registrar | Confirmar código, pré-requisitos e vínculo com a matriz de cada curso |
 
 A presença de uma entidade no modelo não comprova que seus campos estejam disponíveis nas fontes. Confira as [dependências dos indicadores](../projeto/indicadores.md#dependencias-que-precisam-ser-confirmadas) antes de definir as consultas finais.
+
+## F4 e F5 — Ampliação nacional
+
+| ID | Fonte | Formato de chegada | Frequência | Volume e qualidade | Dado pessoal no recorte utilizado |
+|---|---|---|---|---|---|
+| F4 | Censo da Educação Superior, curso/ano | ZIP com arquivos e dicionário; selecionar CSV | Anual e revisões | A medir após download | Somente agregados de curso/instituição |
+| F5 | Indicadores de Trajetória, curso/coorte/ano | ZIP; selecionar tabela conforme a edição | Anual e revisões | A medir após download | Somente indicadores agregados |
+
+URLs, edição inicial, chaves e disponibilidade estão na [integração Inep](integracao-inep.md).
+Manter originais e manifestos enquanto necessários à reprodução do projeto;
+a política definitiva de retenção permanece com a equipe. Não importar
+identificadores individuais de estudantes do Inep para essa extensão.

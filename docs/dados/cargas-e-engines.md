@@ -51,3 +51,11 @@ e um conjunto de **garantias ACID**. A pergunta central não é "tem ACID?", e s
 
 !!! tip "Relatório pesado não roda no banco de produção"
     Por isso a carga analítica (S2) é separada do banco principal (S1).
+
+## Ampliação de conteúdo
+
+S1 recebe referências institucionais, cursos e correspondências revisadas;
+S2 recebe Censo anual, trajetórias de coortes e visões de comparação;
+S3 preserva também ZIPs oficiais do Inep e manifestos. Não se acrescenta outro
+SGBD. A carga SQL da extensão exige atomicidade, consistência, isolamento e
+durabilidade: reprocessar não autoriza expor uma carga parcial.

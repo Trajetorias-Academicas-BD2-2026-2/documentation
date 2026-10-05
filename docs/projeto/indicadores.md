@@ -34,7 +34,7 @@ O projeto combina **planejamento da oferta** e **compreensão das trajetórias a
 
 ## Dependências que precisam ser confirmadas
 
-O inventário tem apenas **três fontes**. Embora o modelo inclua Matrícula, a planilha não comprova que exista um vínculo aluno–turma disponível nelas. Sem essa relação, ocupação e demanda não podem ser deduzidas apenas do cadastro de alunos e da lista de turmas.
+As fontes locais F1–F3 sustentam as análises semestrais. F4–F5 acrescentam agregados nacionais, mas não fornecem o vínculo local aluno–turma. Embora o modelo inclua Matrícula, a planilha não comprova que exista um vínculo aluno–turma disponível nelas. Sem essa relação, ocupação e demanda não podem ser deduzidas apenas do cadastro de alunos e da lista de turmas.
 
 Também precisam ser verificados: datas de conclusão, solicitações de matrícula, pré-requisitos e obrigatoriedade por curso. Um componente pode ser obrigatório em um curso e optativo em outro; a comparação entre turnos depende da matriz curricular correspondente.
 
@@ -49,3 +49,25 @@ Também precisam ser verificados: datas de conclusão, solicitações de matríc
 A intenção de apoiar decisões preditivas aparece na planilha, mas não há modelo preditivo, método de avaliação ou resultado documentado. A primeira validação deve verificar se as análises descritivas são viáveis.
 
 **Próximo passo:** executar o [plano de validação](plano-de-validacao.md) e incorporar as regras confirmadas ao [modelo de dados](../dados/modelo-de-dados.md).
+
+## Novas perguntas da versão 1.1
+
+| ID | Pergunta | Dados e granularidade | Produto |
+|---|---|---|---|
+| Q9 | Como evoluem ingressantes, matrículas e concluintes dos cursos selecionados da UnB e de cursos equivalentes? | F4, curso/ano; mapa local validado | Série anual com período e cobertura |
+| Q10 | Após o mesmo acompanhamento, como conclusão e desistência da UnB se comparam às de instituições equivalentes? | F5, curso/coorte/ano; grupos comparáveis | Taxas e diferenças em pontos percentuais |
+| Q11 | Como permanência, conclusão e desistência evoluem dentro da mesma coorte? | F5, curso/coorte/ano | Evolução da coorte; sem somar anos |
+| Q12 | Quais cursos/anos não têm correspondência ou referência comparável? | Mapa local, F4 e F5 | Relatório de cobertura e ausências |
+
+Taxas da referência são ponderadas pelos ingressantes da coorte. Excluir a
+instituição-alvo e manter área, grau, modalidade, categoria, coorte e ano iguais.
+Uma variação entre observações com intervalo maior que um ano não deve ser
+rotulada como variação anual. Não calcular conclusão usando ingressantes e
+concluintes do mesmo ano. As [regras completas](../dados/integracao-inep.md) e
+as consultas de `sql/002_indicadores_inep.sql` definem o recorte.
+
+Apresentar duas visões adicionais no dashboard da equipe: **Comparação entre
+instituições** (Q9–Q10) e **Trajetória por coorte** (Q11), com cobertura Q12 visível.
+Filtros: curso, instituição, área, grau, modalidade, categoria e período/coorte.
+Exibir atualização, denominador, número de instituições da referência e origem.
+Essas telas são especificadas aqui; não há código do dashboard no ZIP original.

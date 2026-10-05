@@ -144,3 +144,28 @@ Essas questões complementam o desenho original e devem ser resolvidas durante o
 
 As consultas mais frequentes do projeto estão listadas na
 [visão geral](../projeto/visao-geral.md#perguntas-que-o-sistema-precisa-responder).
+
+## Extensão física para F4–F5
+
+| Entidade nova | Chave | Relação e responsabilidade |
+|---|---|---|
+| Instituição Inep | codigo_ies | Referência institucional |
+| Curso Inep | codigo_ies + codigo_curso | Referência do curso; nome não é chave |
+| Curso local | codigo_local | Identifica o curso no sistema da equipe |
+| Mapa de curso | codigo_local + ano | Liga curso local ao Inep com evidência revisada |
+| Censo curso/ano | codigo_ies + codigo_curso + ano | Contagens e classificações anuais |
+| Trajetória curso/coorte/ano | codigo_ies + codigo_curso + ano_ingresso + ano | Taxas e denominador da coorte |
+
+As seis tabelas estão no schema `inep`, isoladas das tabelas locais. O arquivo
+`sql/001_extensao_inep.sql` contém chaves, restrições e índices. A relação
+aluno–turma do desenho original continua dependendo da fonte local; não é
+reconstruída por agregados do Inep. [Contrato e regras](integracao-inep.md).
+
+```mermaid
+erDiagram
+    INSTITUICAO ||--o{ CURSO_INEP : possui
+    CURSO_INEP ||--o{ CENSO_ANUAL : registra
+    CURSO_INEP ||--o{ TRAJETORIA_COORTE : acompanha
+    CURSO_INEP ||--o{ MAPA_CURSO : corresponde
+    CURSO_LOCAL ||--o{ MAPA_CURSO : mapeia
+```

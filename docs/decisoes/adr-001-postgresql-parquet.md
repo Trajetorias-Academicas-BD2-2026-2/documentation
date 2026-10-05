@@ -105,3 +105,10 @@ A decisão deve ser reaberta se:
 - o custo ou a complexidade de manutenção aumentar;
 - surgirem requisitos de processamento em tempo real;
 - a UnB alterar significativamente o formato ou a estrutura dos datasets.
+
+## Complemento de escopo — 05/10/2026
+
+A versão 1.1 incorpora F4/F5 do Inep ao PostgreSQL em schema próprio. A decisão
+de tecnologia permanece proposta até validação com dados reais. CSV tratado e
+carga SQL estão implementados; Parquet continua como derivado opcional.
+A decisão de integrar agregados anuais por curso está em [ADR-002](adr-002-integracao-inep.md).

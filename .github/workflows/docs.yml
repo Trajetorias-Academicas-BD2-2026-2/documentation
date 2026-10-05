@@ -33,6 +33,9 @@ jobs:
       - name: Validar documentação
         run: mkdocs build --strict
 
+      - name: Verificar extensão Inep
+        run: python -m unittest discover -s tests -v
+
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: build

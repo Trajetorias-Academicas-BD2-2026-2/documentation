@@ -1,0 +1,4 @@
+# O pipeline de CSV e geração de SQL usa apenas a biblioteca padrão do Python.
+# Instale os pacotes abaixo somente para exportar Parquet em uma etapa posterior.
+pandas>=2.2,<4
+pyarrow>=15,<25

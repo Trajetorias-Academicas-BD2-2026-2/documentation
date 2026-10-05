@@ -53,3 +53,17 @@ O [plano de validação](projeto/plano-de-validacao.md) detalha a ordem das entr
 - [ ] **Camada analítica:** a planilha descreve a base analítica como PostgreSQL orientado a linha (aba 4) e também como Parquet (abas 2, 5 e ADR). Definir quais consultas rodam no PostgreSQL e quais leem Parquet.
 - [ ] **Dados brutos:** a aba 4 guarda os brutos em sistema de arquivos; o ADR fala em brutos em Parquet. Definir se os brutos ficam no formato original (CSV/JSON) ou convertidos.
 - [ ] **Tabela de consultas** da aba 3 (Modelos): só tem o exemplo; transferir as consultas do ADR para lá.
+
+## Pendências específicas da versão 1.1
+
+- [ ] Obter ZIPs F4/F5: tentativa de 05/10/2026 retornou HTTP 502.
+- [ ] Conferir dicionário, membro CSV, codificação, unidade das taxas e colunas.
+- [ ] Validar os mapas de colunas e a correspondência de cursos reais da UnB.
+- [ ] Definir cursos equivalentes e medir cobertura por ano/coorte.
+- [ ] Executar carga e visões no PostgreSQL da equipe, com conferência de totais.
+- [ ] Integrar Q9–Q12 ao código do dashboard existente.
+- [ ] Medir armazenamento, tempo de consulta e eventual exportação Parquet.
+
+Coleta/tratamento, DDL e consultas, documentação, atualização da planilha e
+testes sintéticos foram acrescentados. Esses itens não encerram as pendências
+de coleta real e integração da aplicação.

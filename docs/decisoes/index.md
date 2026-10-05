@@ -20,3 +20,5 @@ seis meses, alguém entenda **por que** as coisas são como são.
 2. Atualize título, data, status e participantes.
 3. Preencha todos os campos, principalmente *Consequências negativas* — um ADR sem essa parte está incompleto.
 4. Adicione a página em `nav` no `mkdocs.yml` e na tabela acima.
+
+[ADR-002 — Integração com o Inep](adr-002-integracao-inep.md): fontes F4/F5 e comparação entre cursos.

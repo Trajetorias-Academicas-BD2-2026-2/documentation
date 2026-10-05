@@ -24,3 +24,15 @@ Os itens abaixo são **propostas para avaliação da equipe**, derivados das lac
 | R8 | Comparação de coortes com tempos de acompanhamento diferentes | Interpretação incorreta de conclusão e cancelamento | Exibir data de corte, janela de acompanhamento e população de cada grupo | A definir |
 
 Os controles propostos estão em [Qualidade e reprocessamento](qualidade.md); as dependências analíticas, em [Perguntas e indicadores](../projeto/indicadores.md).
+
+## Riscos da ampliação Inep
+
+| Risco | Efeito | Tratamento |
+|---|---|---|
+| Servidor de download indisponível | F4/F5 não chegam | Encerrar com erro e registrar falha; download manual oficial como alternativa |
+| Mudança de schema ou unidade da taxa | Indicador incorreto | Mapa de colunas revisado por edição; validação bloqueante |
+| Correspondência errada de curso | Comparação mistura cursos/campi | Mapa por ano com evidência e revisão manual |
+| Coortes ou períodos diferentes | Referência não comparável | Chave curso/coorte/ano e filtros iguais |
+| Duplicação de coortes em edições | Contagens infladas | Rejeitar conflitos e manter uma revisão por chave |
+| Revisão remove registros | Registros antigos permanecem | Conferir diferenças e planejar substituição transacional do recorte |
+| F4 e F5 tratados como fontes independentes | Validação circular | Registrar que F5 deriva do Censo |

@@ -88,17 +88,20 @@ nav:
       - Plano de validação: projeto/plano-de-validacao.md
   - Dados:
       - Fontes de dados: dados/fontes.md
+      - Integração Inep: dados/integracao-inep.md
       - Formatos de armazenamento: dados/formatos.md
       - Modelo de dados: dados/modelo-de-dados.md
       - Cargas e engines: dados/cargas-e-engines.md
   - Pipeline:
       - Visão geral: pipeline/visao-geral.md
       - Etapas: pipeline/etapas.md
+      - Executar extensão Inep: pipeline/execucao-inep.md
       - Qualidade e reprocessamento: pipeline/qualidade.md
       - Riscos: pipeline/riscos.md
   - Decisões:
       - Índice de ADRs: decisoes/index.md
       - "ADR-001: PostgreSQL + Parquet": decisoes/adr-001-postgresql-parquet.md
+      - "ADR-002: Integração Inep": decisoes/adr-002-integracao-inep.md
   - Referência:
       - Origem e rastreabilidade: referencia/planilha.md
       - Pendências: pendencias.md

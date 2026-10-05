@@ -53,3 +53,16 @@ O aceite deve incluir a repetição da mesma entrada: ela precisa produzir os me
 | Publicação | Versão disponibilizada e data da última carga validada |
 
 O responsável, o local de armazenamento desses registros e o canal de alerta permanecem **a definir**. Veja os [riscos](riscos.md) e o [plano de validação](../projeto/plano-de-validacao.md).
+
+## Controles adicionais de F4–F5
+
+Conferir o dicionário e a codificação da edição antes da normalização. Rejeitar
+colunas ausentes, coorte posterior à observação, denominador não positivo e
+percentuais fora de 0–100. Taxas devem somar 100 com tolerância de 0,2 p.p.
+Duplicatas iguais são contadas e removidas; conflitos de chave interrompem a carga.
+O destino tratado só aparece depois de todas as validações.
+
+Conferir mapas locais e cobertura da referência antes da publicação. As cargas
+SQL fazem atualização por chave em transação e não removem linhas ausentes de
+uma edição revisada. Revisões com exclusões exigem substituição do recorte planejada.
+Originais e manifestos são preservados. [Execução](execucao-inep.md).

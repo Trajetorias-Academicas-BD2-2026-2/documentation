@@ -78,3 +78,21 @@ Pull requests também passam pela validação do site, sem publicação.
 `docs/` contém as páginas publicadas. `referencias/` preserva o material de origem.
 `site/` e `.venv/` são gerados localmente e não entram no Git; arquivos
 `Zone.Identifier` também são ignorados.
+
+## Versão 1.1 — Extensão Inep
+
+F4 — Censo da Educação Superior e F5 — Indicadores de Trajetória foram
+acrescentados ao inventário, modelo, pipeline, perguntas Q9–Q12 e planilha.
+O pacote contém `scripts/inep_pipeline.py`, `config/fontes-inep.json`, DDL e
+visões em `sql/` e testes em `tests/`. O tratamento usa a biblioteca padrão do Python.
+
+```bash
+python scripts/inep_pipeline.py --help
+python -m unittest discover -s tests -v
+```
+
+Siga `docs/pipeline/execucao-inep.md` para baixar, mapear colunas, normalizar e
+carregar no PostgreSQL. As páginas oficiais foram verificadas em 05/10/2026,
+mas os ZIPs retornaram HTTP 502; não há carga oficial do Inep no pacote.
+Os testes sintéticos não representam indicadores reais da UnB. A conexão ao
+dashboard existente depende de seu código, ausente no ZIP recebido.

@@ -8,7 +8,7 @@
 | **Disciplina / turma / semestre** | Sistemas de Banco de Dados 2 / Turma 3 / 2026.2 |
 | **O que o sistema faz** | Apresenta trajetórias acadêmicas na UnB: tempo de formação, cotas e formas de ingresso e disponibilidade de turmas |
 | **Repositório** | <https://github.com/Trajetorias-Academicas-BD2-2026-2/documentation> |
-| **Versão da planilha de referência** | 1.0 |
+| **Versão da planilha de referência** | 1.1 — ampliação Inep, 05/10/2026 |
 | **Data de preenchimento da planilha** | 02/09/2026 |
 
 ## Problema que o sistema resolve
@@ -74,3 +74,14 @@ Veja as definições propostas em [Perguntas e indicadores](indicadores.md), a d
 | Guilherme Evangelista |
 | Angélica |
 | Davi Araújo |
+
+## Ampliação 1.1 — Comparação entre instituições
+
+O projeto incorpora o Censo da Educação Superior e os Indicadores de Trajetória
+para contextualizar os cursos da UnB em relação a cursos equivalentes.
+A pergunta adicional central é: **como evoluem o tamanho dos cursos e os resultados
+das coortes da UnB em comparação com cursos semelhantes de outras instituições?**
+
+O novo recorte não demonstra que a oferta de uma disciplina causa desistência
+ou retenção. Ele acrescenta séries anuais e comparações descritivas ao domínio
+semestral existente. Consulte a [integração Inep](../dados/integracao-inep.md).

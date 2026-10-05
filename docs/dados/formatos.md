@@ -65,3 +65,14 @@ o formato colunar:
 - **Linha** favorece quem lê registros inteiros.
 - **Coluna** favorece quem lê poucos atributos de muitos registros.
 - **Texto** é legível e volumoso; **binário** é compacto e opaco.
+
+## Conjuntos da ampliação
+
+| ID | Conjunto | Origem | Preservação e derivado |
+|---|---|---|---|
+| D5 | Censo curso/ano | F4 | ZIP original; CSV normalizado e carga SQL; Parquet opcional |
+| D6 | Trajetória curso/coorte/ano | F5 | ZIP original; CSV normalizado e carga SQL; Parquet opcional |
+| D7 | Correspondência de cursos | Revisão da equipe | Tabela relacional curso local/ano com evidência |
+
+Volume, pureza e ganho de Parquet permanecem a medir. A implementação fornecida
+não converte dados para Parquet automaticamente. [Contrato](integracao-inep.md).

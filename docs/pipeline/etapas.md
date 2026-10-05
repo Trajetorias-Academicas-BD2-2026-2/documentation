@@ -1,6 +1,6 @@
 # Etapas do pipeline
 
-As etapas P1–P7 são planejadas em **lote**; o consumo P8 ocorre **sob demanda**. Os responsáveis ainda estão **a definir**. Ferramentas e verificações abaixo são previstas na planilha, sem evidência de execução anexada.
+As etapas P1–P7, P9 e P10 são planejadas em **lote**; o consumo P8 ocorre **sob demanda**. Os responsáveis ainda estão **a definir**. Ferramentas e verificações abaixo são previstas na planilha, sem evidência de execução anexada.
 
 ## P1 — Coleta de dados dos alunos
 
@@ -97,3 +97,28 @@ As etapas P1–P7 são planejadas em **lote**; o consumo P8 ocorre **sob demanda
 | Custo de 1 h de atraso | Médio — afeta a experiência do usuário, mas não interrompe a coleta |
 | Ferramenta | Aplicação web / dashboard |
 | Como detectar falha | Monitoramento da aplicação e mensagens de erro quando os indicadores não puderem ser carregados |
+
+## P9 — Coleta do Censo da Educação Superior
+
+F4 → originais versionados. Download anual em lote, com edição, URL, tamanho,
+SHA-256 e horário. ZIP íntegro é requisito; falha interrompe o processo sem
+apagar a carga anterior. Executado antes de P4. Ferramenta: Python, comando
+`fetch --source censo`. Responsável: a definir.
+
+## P10 — Coleta dos Indicadores de Trajetória
+
+F5 → originais versionados. Download em lote por edição/coorte; registrar a
+janela de acompanhamento e evitar união duplicada de coortes sobrepostas.
+Executado antes de P4. Ferramenta: Python, `fetch --source trajetoria`.
+Responsável: a definir.
+
+## Extensão de P4–P8
+
+- P4: mapear colunas após revisão do dicionário; validar percentuais, anos e chaves.
+- P5: gerar carga no schema `inep` e revisar a correspondência curso local–Inep.
+- P6: manter tabelas curso/ano e curso/coorte/ano, sem multiplicar contagens por turma.
+- P7: calcular Q9–Q12, com médias ponderadas e grupos comparáveis.
+- P8: integrar as visões ao dashboard da equipe e mostrar cobertura e atualização.
+
+Coleta/tratamento de F4–F5 e SQL estão incluídos; ligação a P8 depende do código
+da aplicação existente. [Execução e tratamento de falhas](execucao-inep.md).

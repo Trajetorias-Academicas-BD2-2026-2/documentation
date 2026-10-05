@@ -6,7 +6,7 @@ fonte → ingestão → armazenamento → transformação → consumo.
 ## Fluxo
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph Fontes
         F1[Alunos]
         F2[Turmas]
@@ -28,7 +28,7 @@ flowchart LR
 ```
 
 !!! note "Fluxo planejado"
-    O diagrama representa a proposta da planilha. P1–P7 processam dados em lote; P8 atende consultas sob demanda. O público externo está previsto na identificação do projeto, embora a etapa de consumo da planilha mencione apenas o coordenador. A [arquitetura proposta](../projeto/arquitetura.md) detalha essa extensão.
+    O diagrama representa o núcleo local. P9/P10 acrescentam a coleta do Inep, descrita abaixo. P1–P7 e P9/P10 processam dados em lote; P8 atende consultas sob demanda. A [arquitetura proposta](../projeto/arquitetura.md) detalha o fluxo ampliado.
 
 ## Princípios
 
@@ -52,3 +52,9 @@ As classificações ETL/ELT acima reproduzem a planilha. Na implementação, ser
 ## Onde cada etapa está detalhada
 
 Veja a página [Etapas](etapas.md), os critérios de [Qualidade e reprocessamento](qualidade.md) e os [Riscos](riscos.md) do pipeline.
+
+## Extensão Inep
+
+P9 coleta F4 e P10 coleta F5, antes de P4. As etapas P4–P7 passam a validar e
+integrar também curso/ano e curso/coorte/ano. P8 recebe as novas visões após
+validação e integração da aplicação. [Executar](execucao-inep.md).
