@@ -55,7 +55,11 @@ flowchart TB
 
 **PostgreSQL analítico (S2)** é o destino proposto para tabelas ou visões usadas pelo dashboard. A separação é lógica neste desenho: schemas, bancos ou instâncias separados ainda precisam ser escolhidos conforme a prova de conceito e os recursos disponíveis.
 
-**Parquet** armazena conjuntos tratados e exportações analíticas para processamento em Python e comparação de desempenho. O leitor e as consultas que acessarão esses arquivos diretamente ainda estão a definir. O formato, por si só, não define o serviço de consulta.
+**Parquet** armazena conjuntos tratados e exportações analíticas para
+processamento em Python e comparação de desempenho. Gustavo Alves é
+responsável por escolher e registrar o leitor e as consultas que acessarão
+esses arquivos diretamente. O formato, por si só, não define o serviço de
+consulta.
 
 ## Preservação dos dados brutos
 

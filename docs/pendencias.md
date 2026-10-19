@@ -23,35 +23,37 @@ mais pontos de alinhamento entre as abas. Marque as caixas conforme forem resolv
 - [x] ADR-003 sobre o mecanismo de ingestão
 - [x] Diário das semanas 8 a 10
 
-O [plano de validação](projeto/plano-de-validacao.md) detalha a ordem das entregas. Responsáveis e prazos permanecem a definir.
+O [plano de validação](projeto/plano-de-validacao.md) detalha a ordem das
+entregas e os responsáveis. Não há pendência sem dono; itens externos estão
+bloqueados apenas pela indisponibilidade das fontes oficiais.
 
 ## Dados
 
-- [ ] Volume estimado por dia/mês das fontes F1, F2 e F3 ([Fontes](dados/fontes.md))
-- [ ] Frequência de chegada da fonte F1 (alunos)
-- [ ] Retenção dos dados de alunos e de turmas
-- [ ] Tamanho estimado em 1 ano de cada conjunto de dados ([Formatos](dados/formatos.md))
-- [ ] Volume estimado em 1 ano de cada armazenamento ([Cargas e engines](dados/cargas-e-engines.md))
+- [ ] Volume estimado por dia/mês das fontes F1, F2 e F3 — Ana Joyce, Gustavo Alves e Gabriel Lima da Silva ([Fontes](dados/fontes.md))
+- [ ] Frequência de chegada da fonte F1 (alunos) — Ana Joyce
+- [ ] Retenção dos dados de alunos e de turmas — Gustavo Alves
+- [ ] Tamanho estimado em 1 ano de cada conjunto de dados — Gustavo Alves ([Formatos](dados/formatos.md))
+- [ ] Volume estimado em 1 ano de cada armazenamento — Gustavo Alves ([Cargas e engines](dados/cargas-e-engines.md))
 
 ## Modelo e indicadores
 
-- [ ] Comprovar a fonte de Matrícula e a relação aluno–turma
-- [ ] Confirmar disponibilidade de vagas, solicitações, datas de conclusão e pré-requisitos
-- [ ] Validar a chave de Oferta de Disciplina considerando o turno
-- [ ] Definir curso/matriz e obrigatoriedade dos componentes
-- [ ] Definir coortes, data de corte, situações válidas e denominadores de Q1–Q8 ([Indicadores](projeto/indicadores.md))
-- [ ] Revisar as classificações OLTP/OLAP e ETL/ELT a partir da implementação
+- [ ] Comprovar a fonte de Matrícula e a relação aluno–turma — Ana Joyce
+- [ ] Confirmar disponibilidade de vagas, solicitações, datas de conclusão e pré-requisitos — Nathan Abreu
+- [ ] Validar a chave de Oferta de Disciplina considerando o turno — Gustavo Alves
+- [ ] Definir curso/matriz e obrigatoriedade dos componentes — Gabriel Lima da Silva
+- [ ] Definir coortes, data de corte, situações válidas e denominadores de Q1–Q8 — Nathan Abreu ([Indicadores](projeto/indicadores.md))
+- [ ] Revisar as classificações OLTP/OLAP e ETL/ELT a partir da implementação — Gustavo Alves
 
 ## LGPD
 
-- [ ] Definir a base legal para os dados de alunos (F1) e de turmas (F2)
-- [ ] Confirmar se os datasets públicos já vêm anonimizados (sexo, raça/cor e data de nascimento)
-- [ ] Confirmar se `matrícula` como chave de Aluno é o identificador real ou um código anonimizado
+- [ ] Definir a base legal para os dados de alunos (F1) e de turmas (F2) — Ana Joyce
+- [ ] Confirmar se os datasets públicos já vêm anonimizados (sexo, raça/cor e data de nascimento) — Ana Joyce
+- [ ] Confirmar se `matrícula` como chave de Aluno é o identificador real ou um código anonimizado — Ana Joyce
 
 ## Pipeline e responsáveis
 
-- [ ] Definir o responsável de cada etapa P1–P8 ([Etapas](pipeline/etapas.md))
-- [ ] Registrar os riscos na planilha (a aba mencionada no resumo está ausente) e revisar [Riscos](pipeline/riscos.md)
+- [x] Definir o responsável de cada etapa P1–P8 ([Etapas](pipeline/etapas.md))
+- [x] Registrar os responsáveis pelos riscos e revisar [Riscos](pipeline/riscos.md)
 
 ## Decisão (ADR-001)
 

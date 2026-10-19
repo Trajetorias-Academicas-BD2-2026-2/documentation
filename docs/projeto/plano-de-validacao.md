@@ -1,19 +1,25 @@
 # Plano de validação
 
-A planilha registra uma prova de conceito futura para PostgreSQL e Parquet. O roteiro abaixo detalha essa entrega como **proposta de trabalho**. Não há benchmark executado ou responsáveis atribuídos no material de origem.
+A planilha registra uma prova de conceito futura para PostgreSQL e Parquet. O
+roteiro abaixo detalha essa entrega como **plano operacional**, com
+responsáveis atribuídos pela Squad G2. Medições que dependem de fonte oficial
+continuam explicitamente bloqueadas até a disponibilidade dos arquivos.
 
 ## Entregas e critérios de conclusão
 
 | Ordem | Entrega | Evidência para concluir | Dependência |
 |---|---|---|---|
-| 1 | Inventário verificável de F1–F5 | URL de cada recurso, data de coleta, período coberto, tamanho e esquema real | Acesso às fontes |
-| 2 | Perfilamento e viabilidade dos indicadores | Contagens, chaves, nulos, duplicatas e campos disponíveis para Q1–Q12 | Inventário |
-| 3 | Modelo revisado | Dicionário de campos e relacionamentos demonstrados com amostras | Perfilamento |
-| 4 | Recorte completo do pipeline | Uma carga da coleta até um indicador, com relatório de qualidade | Modelo e regras de cálculo |
-| 5 | Comparação de armazenamento e consultas | Medições reproduzíveis em CSV, Parquet e PostgreSQL | Recorte validado |
-| 6 | Revisão do ADR-001 | Resultados, limitações e decisão da equipe registrados | Prova de conceito |
+| 1 | Inventário verificável de F1–F5 | URL de cada recurso, data de coleta, período coberto, tamanho e esquema real | Acesso às fontes — Ana Joyce / Angélica Campos |
+| 2 | Perfilamento e viabilidade dos indicadores | Contagens, chaves, nulos, duplicatas e campos disponíveis para Q1–Q12 | Inventário — Nathan Abreu |
+| 3 | Modelo revisado | Dicionário de campos e relacionamentos demonstrados com amostras | Perfilamento — Gabriel Lima da Silva |
+| 4 | Recorte completo do pipeline | Uma carga da coleta até um indicador, com relatório de qualidade | Modelo e regras de cálculo — Gustavo Alves |
+| 5 | Comparação de armazenamento e consultas | Medições reproduzíveis em CSV, Parquet e PostgreSQL | Recorte validado — Gustavo Alves |
+| 6 | Revisão do ADR-001 | Resultados, limitações e decisão da equipe registrados | Prova de conceito — Davi Araújo |
 
-O responsável e o prazo de cada entrega estão **a definir**. A ordem indica dependências, sem estabelecer um cronograma que não consta na planilha.
+As dependências e os responsáveis estão definidos na tabela. A validação
+oficial do Inep permanece bloqueada pelo HTTP 502 registrado no manifesto de
+falha; Angélica Campos e Davi Araújo são os responsáveis por repetir o
+download quando a fonte voltar.
 
 ## Prova de conceito de armazenamento
 

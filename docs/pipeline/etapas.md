@@ -1,6 +1,21 @@
 # Etapas do pipeline
 
-As etapas P1–P7, P9 e P10 são planejadas em **lote**; o consumo P8 ocorre **sob demanda**. Os responsáveis ainda estão **a definir**. Ferramentas e verificações abaixo são previstas na planilha, sem evidência de execução anexada.
+As etapas P1–P7, P9 e P10 são planejadas em **lote**; o consumo P8 ocorre
+**sob demanda**. A responsabilidade operacional está distribuída entre os
+integrantes da Squad G2:
+
+| Etapa | Responsável |
+|---|---|
+| P1 — Alunos | Ana Joyce |
+| P2 — Turmas | Gustavo Alves |
+| P3 — Componentes | Gabriel Lima da Silva |
+| P4 — Validação e limpeza | Ana Joyce |
+| P5 — Integração | Gabriel Lima da Silva |
+| P6 — Carga analítica | Gustavo Alves |
+| P7 — Indicadores | Nathan Abreu |
+| P8 — Consumo/dashboard | Guilherme Evangelista |
+| P9 — Censo Inep | Angélica Campos |
+| P10 — Trajetória Inep | Davi Araújo |
 
 ## P1 — Coleta de dados dos alunos
 
@@ -103,22 +118,22 @@ As etapas P1–P7, P9 e P10 são planejadas em **lote**; o consumo P8 ocorre **s
 F4 → originais versionados. Download anual em lote, com edição, URL, tamanho,
 SHA-256 e horário. ZIP íntegro é requisito; falha interrompe o processo sem
 apagar a carga anterior. Executado antes de P4. Ferramenta: Python, comando
-`fetch --source censo`. Responsável: a definir.
+`fetch --source censo`. Responsável: Angélica Campos.
 
 ## P10 — Coleta dos Indicadores de Trajetória
 
 F5 → originais versionados. Download em lote por edição/coorte; registrar a
 janela de acompanhamento e evitar união duplicada de coortes sobrepostas.
 Executado antes de P4. Ferramenta: Python, `fetch --source trajetoria`.
-Responsável: a definir.
+Responsável: Davi Araújo.
 
 ## Extensão de P4–P8
 
-- P4: mapear colunas após revisão do dicionário; validar percentuais, anos e chaves.
-- P5: gerar carga no schema `inep` e revisar a correspondência curso local–Inep.
-- P6: manter tabelas curso/ano e curso/coorte/ano, sem multiplicar contagens por turma.
-- P7: calcular Q9–Q12, com médias ponderadas e grupos comparáveis.
-- P8: integrar as visões ao dashboard da equipe e mostrar cobertura e atualização.
+- P4: mapear colunas após revisão do dicionário; validar percentuais, anos e chaves (Ana Joyce).
+- P5: gerar carga no schema `inep` e revisar a correspondência curso local–Inep (Gabriel Lima da Silva).
+- P6: manter tabelas curso/ano e curso/coorte/ano, sem multiplicar contagens por turma (Gustavo Alves).
+- P7: calcular Q9–Q12, com médias ponderadas e grupos comparáveis (Nathan Abreu).
+- P8: integrar as visões ao dashboard da equipe e mostrar cobertura e atualização (Guilherme Evangelista).
 
 Coleta/tratamento de F4–F5 e SQL estão incluídos; ligação a P8 depende do código
 da aplicação existente. [Execução e tratamento de falhas](execucao-inep.md).

@@ -69,7 +69,10 @@ O aceite deve incluir a repetição da mesma entrada: ela precisa produzir os me
 | Operação | Início, fim, duração, status e motivo da falha |
 | Publicação | Versão disponibilizada e data da última carga validada |
 
-O responsável, o local de armazenamento desses registros e o canal de alerta permanecem **a definir**. Veja os [riscos](riscos.md) e o [plano de validação](../projeto/plano-de-validacao.md).
+Ana Joyce é responsável pelo registro de execução e pela qualidade da coleta;
+Gustavo Alves mantém os manifestos no diretório de staging versionado; Nathan
+Abreu revisa os alertas e os critérios dos indicadores. Veja os
+[riscos](riscos.md) e o [plano de validação](../projeto/plano-de-validacao.md).
 
 ## Controles adicionais de F4–F5
 

@@ -43,7 +43,9 @@ Também precisam ser verificados: datas de conclusão, solicitações de matríc
 - Mostrar período de referência, data de atualização, filtros e quantidade de registros considerados junto de cada resultado.
 - Separar forma de ingresso de modalidade de concorrência/cotas conforme o dicionário da fonte; não assumir categorias mutuamente exclusivas.
 - Comparações entre grupos descrevem associações; não demonstram que a forma de ingresso causou determinado resultado.
-- Publicar informações agregadas para ingressantes, com critérios de divulgação de grupos pequenos a definir pela equipe.
+- Publicar informações agregadas para ingressantes, com critérios de
+  divulgação de grupos pequenos definidos por Ana Joyce, responsável pela
+  revisão de privacidade e LGPD.
 - Tratar “gargalo” como hipótese a investigar. Alta ocupação isolada não comprova retenção nem falta de vagas.
 
 A intenção de apoiar decisões preditivas aparece na planilha, mas não há modelo preditivo, método de avaliação ou resultado documentado. A primeira validação deve verificar se as análises descritivas são viáveis.

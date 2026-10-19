@@ -59,7 +59,7 @@ A planilha apresenta uma proposta de sistema. O primeiro recorte de validação 
 | Oferta acadêmica | Comparar turmas, vagas e turnos ao longo dos semestres | Identificadores e histórico de turmas e componentes |
 | Trajetórias | Analisar tempo de formação e situação acadêmica | Datas, vínculo acadêmico e categorias consistentes |
 | Ingresso e cotas | Comparar resultados agregados entre grupos | Dicionário das modalidades e recortes comparáveis |
-| Apoio preditivo | Antecipar necessidades de oferta | Histórico adequado e método de avaliação ainda a definir |
+| Apoio preditivo | Antecipar necessidades de oferta | Histórico adequado e método de avaliação — Nathan Abreu; só iniciar após validar o recorte descritivo |
 
 Veja as definições propostas em [Perguntas e indicadores](indicadores.md), a divisão das camadas na [arquitetura](arquitetura.md) e os critérios de conclusão no [plano de validação](plano-de-validacao.md).
 
