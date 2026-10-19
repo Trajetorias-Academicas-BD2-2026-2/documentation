@@ -88,6 +88,14 @@ Integramos o planejamento de dados de **alunos, turmas e componentes curriculare
 
     [Fluxo](pipeline/visao-geral.md) · [Etapas](pipeline/etapas.md) · [E2 — ingestão](pipeline/ingestao-e2.md) · [Qualidade](pipeline/qualidade.md)
 
+- :material-source-merge: **Entrega E2 — ingestão**
+
+    ---
+
+    Lote idempotente, Parquet/Delta, captura de mudanças no OLTP e tratamento de dados atrasados.
+
+    [Evidências da E2](pipeline/ingestao-e2.md)
+
 - :material-source-branch: **Decisões de engenharia**
 
     ---
