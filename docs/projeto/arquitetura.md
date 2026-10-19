@@ -5,6 +5,13 @@ A planilha propõe **PostgreSQL** para os relacionamentos e consultas SQL, **Par
 !!! note "Proposta de organização"
     A separação abaixo concilia os blocos da planilha e explicita pontos ainda abertos. Não representa infraestrutura implantada nem altera o status **proposto** do [ADR-001](../decisoes/adr-001-postgresql-parquet.md).
 
+!!! success "Implementação da E2"
+    O recorte da E2 validou a camada aberta com Parquet particionado e Delta
+    Lake. O caminho de mudanças usa outbox transacional no PostgreSQL e
+    consumidor com checkpoint. A implementação e os resultados estão na
+    [página da E2](../pipeline/ingestao-e2.md) e no
+    [ADR-003](../decisoes/adr-003-ingestao-e2.md).
+
 ## Camadas e responsabilidades
 
 ```mermaid
@@ -59,6 +66,16 @@ O bloco de cargas e as etapas de coleta pedem preservação dos originais; o tex
 Uma nova coleta deve gerar uma versão identificável dos dados. As validações de P4–P7 precedem a disponibilização ao dashboard. Se uma execução falhar, a proposta é manter a última versão validada e informar sua data, em vez de expor uma carga parcial.
 
 Os controles estão em [Qualidade e reprocessamento](../pipeline/qualidade.md). As metas de latência da planilha estão em [Cargas e engines](../dados/cargas-e-engines.md) e ainda não são resultados medidos.
+
+### Ingestão e publicação da E2
+
+| Caminho | Entrada | Destino | Garantia demonstrada |
+|---|---|---|---|
+| Lote | Coleta pública versionada | Parquet + Delta, por `ano/periodo` | Reexecução sem duplicação |
+| Mudanças | OLTP → outbox transacional | Delta sobre Parquet | At-least-once com deduplicação por chave |
+
+O dado atrasado é atribuído ao período do evento. A janela correspondente é
+reprocessada, em vez de usar a data de consumo como partição.
 
 ## Integração da extensão Inep
 

@@ -2,6 +2,12 @@
 
 A aba *5 Pipeline* já prevê validação de arquivos, contagem de registros e verificação de chaves. Esta página transforma esses sinais em uma **proposta de critérios de aceite**, a implementar e validar pela equipe.
 
+!!! success "Critérios demonstrados na E2"
+    O lote da E2 processou 1.786 linhas, foi executado novamente sem
+    duplicação e publicou Parquet particionado por `ano/periodo` com
+    Zstandard. O consumidor CDC atualizou o estado de `E2-DEMO-001` de
+    30 para 35 vagas e manteve uma linha lógica por chave.
+
 ## Verificações por etapa
 
 | Etapa | Verificação proposta | Evidência registrada | Ação em caso de falha |
@@ -38,6 +44,17 @@ Proposta para a implementação:
 5. Promover a versão aprovada de forma controlada e guardar o resultado da execução.
 
 O aceite deve incluir a repetição da mesma entrada: ela precisa produzir os mesmos totais sem criar duplicatas. Uma falha intermediária não deve alterar a versão disponível ao usuário.
+
+### Resultado da E2
+
+| Teste | Resultado |
+|---|---|
+| Reexecução do mesmo lote | 1.786 linhas nas duas execuções |
+| Particionamento | `ano/periodo` |
+| Compressão | Zstandard |
+| Alteração no OLTP | `30 → 35` vagas |
+| Releitura do CDC | uma linha por chave |
+| Dado atrasado | reprocessa a janela do período do evento |
 
 !!! note "Reprocessar não substitui publicação consistente"
     A aba *4 Cargas e Engines* admite abrir mão de atomicidade na base analítica porque a carga pode ser refeita. A recuperação resolve a execução futura, mas não evita a leitura de dados parciais durante a falha. A proposta é validar uma versão completa antes de publicá-la; o mecanismo ainda precisa ser definido.

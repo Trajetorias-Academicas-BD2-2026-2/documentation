@@ -30,6 +30,13 @@ flowchart TB
 !!! note "Fluxo planejado"
     O diagrama representa o núcleo local. P9/P10 acrescentam a coleta do Inep, descrita abaixo. P1–P7 e P9/P10 processam dados em lote; P8 atende consultas sob demanda. A [arquitetura proposta](../projeto/arquitetura.md) detalha o fluxo ampliado.
 
+!!! success "Entrega E2 implementada"
+    A E2 acrescenta dois caminhos ao fluxo: a fonte pública é materializada
+    em Parquet/Delta por lote idempotente, e as mudanças do OLTP são
+    publicadas por uma outbox transacional e um consumidor CDC. Veja a
+    [visão detalhada da ingestão](ingestao-e2.md) e o
+    [ADR-003](../decisoes/adr-003-ingestao-e2.md).
+
 ## Princípios
 
 1. **Lote, não tempo real.** A oferta de disciplinas é decidida por semestre; um atraso de 1 hora tem custo baixo em quase todas as etapas.
@@ -37,6 +44,9 @@ flowchart TB
 3. **Validar na entrada.** Cada coleta confere formato, tamanho, colunas e integridade antes de seguir adiante.
 4. **Documentar cada transformação.** Cada transformação é uma decisão de negócio disfarçada de código.
 5. **Só migrar para contínuo com motivo.** A equipe só considera processamento contínuo se alguém souber dizer quanto custa o atraso.
+6. **Reprocessar sem duplicar.** A carga em lote substitui a versão derivada
+   do recorte; o consumidor de mudanças reconstrói uma linha por chave e
+   confirma o checkpoint depois da publicação.
 
 ## ETL ou ELT?
 
@@ -46,6 +56,7 @@ flowchart TB
 | Validação, limpeza e integração (P4–P5) | **ETL** |
 | Carga analítica e indicadores (P6–P7) | **ELT** |
 | Consumo (P8) | Não se aplica |
+| Ingestão E2 | Lote + CDC equivalente |
 
 As classificações ETL/ELT acima reproduzem a planilha. Na implementação, será necessário confirmar onde as transformações de P6 e P7 acontecem: antes ou depois da carga no destino.
 

@@ -32,14 +32,19 @@ Integramos o planejamento de dados de **alunos, turmas e componentes curriculare
 
     Da coleta ao consumo dos indicadores.
 
-- **2 registros de decisão**
+- **3 registros de decisão**
 
     PostgreSQL e Parquet, a validar com dados reais.
 
 </div>
 
-!!! info "Estágio do projeto: planejamento e validação"
-    Esta documentação consolida a planilha da equipe, versão 1.1. As tecnologias e o pipeline estão **propostos**; volumes, disponibilidade dos campos e resultados de desempenho ainda precisam ser medidos. Consulte a [origem do conteúdo](referencia/planilha.md) e o [plano de validação](projeto/plano-de-validacao.md).
+!!! info "Estágio do projeto: planejamento, validação e E2"
+    Esta documentação consolida a planilha da equipe, versão 1.1. A
+    arquitetura geral e a extensão Inep continuam em validação; o recorte da
+    E2 tem execução demonstrada para lote, Parquet/Delta e captura de
+    mudanças. Consulte a [origem do conteúdo](referencia/planilha.md), o
+    [plano de validação](projeto/plano-de-validacao.md) e a
+    [evidência da E2](pipeline/ingestao-e2.md).
 
 ## Duas perspectivas, uma base de dados
 
@@ -81,7 +86,7 @@ Integramos o planejamento de dados de **alunos, turmas e componentes curriculare
 
     Acompanhe a coleta, a integração e os critérios propostos para publicar indicadores consistentes.
 
-    [Fluxo](pipeline/visao-geral.md) · [Etapas](pipeline/etapas.md) · [Qualidade](pipeline/qualidade.md)
+    [Fluxo](pipeline/visao-geral.md) · [Etapas](pipeline/etapas.md) · [E2 — ingestão](pipeline/ingestao-e2.md) · [Qualidade](pipeline/qualidade.md)
 
 - :material-source-branch: **Decisões de engenharia**
 
@@ -89,7 +94,7 @@ Integramos o planejamento de dados de **alunos, turmas e componentes curriculare
 
     Entenda os critérios de escolha de PostgreSQL e Parquet, as alternativas e os riscos aceitos.
 
-    [ADR-001](decisoes/adr-001-postgresql-parquet.md) · [Cargas e engines](dados/cargas-e-engines.md)
+    [ADR-001](decisoes/adr-001-postgresql-parquet.md) · [ADR-003 — ingestão E2](decisoes/adr-003-ingestao-e2.md) · [Cargas e engines](dados/cargas-e-engines.md)
 
 - :material-clipboard-check-outline: **Próximas entregas**
 

@@ -12,6 +12,17 @@ mais pontos de alinhamento entre as abas. Marque as caixas conforme forem resolv
 | 3 | Validar um recorte completo | Coleta, integração e indicador com totais conferidos |
 | 4 | Medir e revisar a arquitetura | Prova de conceito e avaliação do ADR registradas |
 
+## E2 — itens concluídos
+
+- [x] Ingestão em lote idempotente da fonte pública
+- [x] Parquet particionado com compressão Zstandard
+- [x] Tabela Delta sobre Parquet
+- [x] Captura de mudanças por outbox transacional
+- [x] Semântica at-least-once com deduplicação demonstrada
+- [x] Política para dado atrasado e reprocessamento de janela
+- [x] ADR-003 sobre o mecanismo de ingestão
+- [x] Diário das semanas 8 a 10
+
 O [plano de validação](projeto/plano-de-validacao.md) detalha a ordem das entregas. Responsáveis e prazos permanecem a definir.
 
 ## Dados
