@@ -1,0 +1,27 @@
+services:
+  inep-db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: inep_demo
+      POSTGRES_USER: inep
+      POSTGRES_PASSWORD: inep_demo
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U inep -d inep_demo"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+
+  inep-demo:
+    build:
+      context: .
+      dockerfile: inep.Dockerfile
+    depends_on:
+      inep-db:
+        condition: service_healthy
+    environment:
+      PGHOST: inep-db
+      POSTGRES_DB: inep_demo
+      POSTGRES_USER: inep
+      PGPASSWORD: inep_demo
+    volumes:
+      - ./data/staging:/workspace/data/staging

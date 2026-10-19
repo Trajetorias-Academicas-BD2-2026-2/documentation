@@ -12,6 +12,26 @@ python scripts/inep_pipeline.py fetch --source censo
 python scripts/inep_pipeline.py fetch --source trajetoria
 ```
 
+## Execução reproduzível no Docker
+
+Antes de aplicar os dados oficiais, a equipe pode validar o pipeline completo
+com as fixtures sintéticas versionadas no repositório:
+
+```bash
+docker compose -f docker-compose.inep.yml up --build --abort-on-container-exit
+docker compose -f docker-compose.inep.yml down -v
+```
+
+O smoke test executa as duas normalizações, cria o schema `inep`, aplica as
+cargas SQL e consulta as tabelas. O resultado esperado é uma linha em
+`inep.censo_curso_ano` e uma linha em
+`inep.trajetoria_curso_coorte_ano`.
+
+!!! warning "Fixture não é dado oficial"
+    As fixtures existem para provar que o código, o SQL, o Docker e as
+    restrições funcionam. Elas não representam indicadores reais da UnB e
+    não substituem a carga dos ZIPs oficiais.
+
 O comando imprime o caminho do ZIP. Cada download é preservado em
 `data/raw/F4/EDICAO/SHA256/` ou `data/raw/F5/EDICAO/SHA256/`, com manifesto.
 Arquivo vazio, HTML no lugar de ZIP, erro HTTP ou integridade inválida interrompem

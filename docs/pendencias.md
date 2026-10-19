@@ -75,6 +75,9 @@ O [plano de validação](projeto/plano-de-validacao.md) detalha a ordem das entr
 - [ ] Integrar Q9–Q12 ao código do dashboard existente.
 - [ ] Medir armazenamento, tempo de consulta e eventual exportação Parquet.
 
+O smoke test Docker com fixtures sintéticas foi concluído; ele valida o
+pipeline e o schema, mas não encerra os itens que dependem dos ZIPs oficiais.
+
 Coleta/tratamento, DDL e consultas, documentação, atualização da planilha e
 testes sintéticos foram acrescentados. Esses itens não encerram as pendências
 de coleta real e integração da aplicação.
