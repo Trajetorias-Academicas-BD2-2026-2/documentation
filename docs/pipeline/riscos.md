@@ -1,10 +1,5 @@
 # Riscos
 
-!!! warning "Registro operacional"
-    O resumo da planilha menciona **Riscos**, mas essa aba não existe no arquivo
-    analisado. Esta página consolida os riscos e atribui um responsável da
-    Squad G2 para cada tratamento.
-
 | ID | Risco | Origem | Impacto | Sinal de detecção | Mitigação | Responsável |
 |---|---|---|---|---|---|---|
 | R1 | O volume de dados cresce além da estimativa inicial e as consultas ficam lentas | ADR-001 | Consultas acima de ~5 s | Latência das consultas analíticas | Ajuste de índices e consultas no PostgreSQL; revisitar a decisão de armazenamento | Gustavo Alves |
