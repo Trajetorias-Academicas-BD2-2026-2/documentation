@@ -95,6 +95,7 @@ nav:
   - Pipeline:
       - Visão geral: pipeline/visao-geral.md
       - Etapas: pipeline/etapas.md
+      - E2 — Ingestão em lote e CDC: pipeline/ingestao-e2.md
       - Executar extensão Inep: pipeline/execucao-inep.md
       - Qualidade e reprocessamento: pipeline/qualidade.md
       - Riscos: pipeline/riscos.md
@@ -102,6 +103,8 @@ nav:
       - Índice de ADRs: decisoes/index.md
       - "ADR-001: PostgreSQL + Parquet": decisoes/adr-001-postgresql-parquet.md
       - "ADR-002: Integração Inep": decisoes/adr-002-integracao-inep.md
+      - "ADR-003: Mecanismo de ingestão E2": decisoes/adr-003-ingestao-e2.md
+  - Diário da E2: diario-e2.md
   - Referência:
       - Origem e rastreabilidade: referencia/planilha.md
       - Pendências: pendencias.md
