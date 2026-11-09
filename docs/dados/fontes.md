@@ -9,8 +9,8 @@ O projeto passa a ter **cinco fontes selecionadas**: F1–F3 da UnB e F4–F5 pu
 
 | ID | Fonte | Tipo | Formato | Frequência | Vazão | Pureza | Previsibilidade | Dado pessoal? |
 |---|---|---|---|---|---|---|---|---|
-| F1 | Dados de alunos (SIGAA) | Sistema | CSV | Eventual / atualização periódica | Média | Média | Alta | Sim |
-| F2 | Turmas | Sistema | CSV | Semestral / eventual | Média | Alta | Alta | A confirmar |
+| F1 | Dados de alunos (SIGAA) | Sistema | CSV | Eventual / atualização periódica | Média | Média | Alta | Fora do recorte publicado |
+| F2 | Turmas | Sistema | CSV | Semestral / eventual | Média | Alta | Alta | Não no recorte publicado |
 | F3 | Componente curricular | Sistema | CSV / JSON | Eventual / atualização periódica | Média | Alta | Alta | Não, se usados só dados curriculares |
 | F4 | Censo da Educação Superior | Terceiro | ZIP / CSV após inspeção | Anual / revisões | A medir | A validar | A validar | Agregados de curso/IES |
 | F5 | Indicadores de Trajetória | Terceiro | ZIP / tabela a conferir | Anual / revisões | A medir | A validar | A validar | Agregados de curso/coorte |
@@ -25,18 +25,12 @@ O projeto passa a ter **cinco fontes selecionadas**: F1–F3 da UnB e F4–F5 pu
 | Item | Descrição |
 |---|---|
 | **Quem gera** | UnB / SIGAA |
-| **Conteúdo** | Histórico acadêmico, forma de ingresso (PAS, Enem, Cotas), status (concluído/cancelado), turno, sexo, raça/cor, data de nascimento e de ingresso |
+| **Conteúdo** | Histórico acadêmico e informações de ingresso, situação, turno e período |
 | **Formato** | CSV |
-| **Volume estimado** | A confirmar |
-| **Retenção** | A confirmar |
-| **Base legal (LGPD)** | A confirmar |
+| **Volume estimado** | Não medido no material publicado |
+| **Retenção** | Retido somente durante a execução do projeto |
+| **Tratamento no projeto** | Não utilizado no recorte publicado; o observatório trabalha com dados agregados de oferta |
 | **O que quebra se falhar** | Impossibilita analisar o tempo médio de formação, o perfil sociodemográfico, o impacto de cotas/ingresso e as taxas de evasão e conclusão |
-
-!!! warning "Atenção à LGPD"
-    Esta fonte contém atributos como **sexo, raça/cor e data de nascimento**. Raça/cor é
-    classificada como dado pessoal sensível pela LGPD (art. 5º, II). A base legal e a forma
-    de tratamento (por exemplo, confirmar se o dataset público já vem anonimizado)
-    ainda precisam ser definidas — veja as [Pendências](../pendencias.md).
 
 ## F2 — Turmas
 
@@ -45,10 +39,10 @@ O projeto passa a ter **cinco fontes selecionadas**: F1–F3 da UnB e F4–F5 pu
 | **Quem gera** | UnB / SIGAA |
 | **Conteúdo** | Relação de turmas da instituição, permitindo analisar a oferta de disciplinas por período |
 | **Formato** | CSV |
-| **Volume estimado** | A confirmar |
+| **Volume estimado** | Não medido no material publicado |
 | **Frequência** | Semestral / eventual |
-| **Retenção** | A confirmar |
-| **Base legal (LGPD)** | A confirmar |
+| **Retenção** | Retido somente durante a execução do projeto |
+| **Tratamento no projeto** | Usada apenas para informações agregadas de oferta, sem dados de alunos |
 | **O que quebra se falhar** | Não será possível analisar quais disciplinas são ofertadas, quantas turmas são abertas e como a oferta varia ao longo dos períodos |
 
 ## F3 — Componente curricular
@@ -58,15 +52,11 @@ O projeto passa a ter **cinco fontes selecionadas**: F1–F3 da UnB e F4–F5 pu
 | **Quem gera** | UnB / SIGAA |
 | **Conteúdo** | Relação dos componentes curriculares dos cursos da UnB, com as informações necessárias para identificar e relacionar as disciplinas |
 | **Formato** | CSV / JSON |
-| **Volume estimado** | A confirmar |
+| **Volume estimado** | Não medido no material publicado |
 | **Frequência** | Eventual / atualização periódica |
 | **Retenção** | Enquanto necessário ao projeto |
 | **Base legal (LGPD)** | Não se aplica |
 | **O que quebra se falhar** | Não será possível relacionar corretamente as turmas às disciplinas nem analisar a estrutura curricular |
-
-!!! note "Dado comportamental também conta"
-    Dado emitido por um sistema, mas que descreve uma pessoa (cliques, tempo de uso,
-    trajeto), é considerado dado de usuário para efeito de LGPD.
 
 ## Evidências a coletar
 

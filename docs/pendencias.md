@@ -31,12 +31,6 @@ O [plano de validação](projeto/plano-de-validacao.md) detalha a ordem das entr
 - [ ] Definir coortes, data de corte, situações válidas e denominadores de Q1–Q8 ([Indicadores](projeto/indicadores.md))
 - [ ] Revisar as classificações OLTP/OLAP e ETL/ELT a partir da implementação
 
-## LGPD
-
-- [ ] Definir a base legal para os dados de alunos (F1) e de turmas (F2)
-- [ ] Confirmar se os datasets públicos já vêm anonimizados (sexo, raça/cor e data de nascimento)
-- [ ] Confirmar se `matrícula` como chave de Aluno é o identificador real ou um código anonimizado
-
 ## Pipeline e responsáveis
 
 - [ ] Definir o responsável de cada etapa P1–P8 ([Etapas](pipeline/etapas.md))

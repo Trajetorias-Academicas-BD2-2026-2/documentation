@@ -22,7 +22,7 @@ Os IDs F1–F5, D1–D7, S1–S3 e P1–P10 são convenções desta documentaç�
 
 - **Consultas:** a tabela da aba *3 Modelos* contém apenas o exemplo fictício. As perguntas sobre oferta foram recuperadas do ADR; as perguntas de trajetórias foram desenvolvidas a partir da identificação do projeto.
 - **Progresso:** o resumo mostra “5 de 7” e mínimos do modelo da atividade. Isso não comprova implantação nem conclusão do projeto; as três fontes reais foram preservadas sem inventar uma quarta para atender ao contador.
-- **Medições:** volumes e tamanhos permanecem “A confirmar”. As latências são metas e os ganhos com Parquet são expectativas.
+- **Medições:** volumes e tamanhos não foram medidos no material publicado. As latências são metas e os ganhos com Parquet são expectativas.
 - **Implementação:** a planilha não apresenta código do pipeline, benchmark ou evidência de um dashboard implantado.
 
 ## Complementos desta revisão
