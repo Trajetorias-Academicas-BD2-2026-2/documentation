@@ -52,7 +52,9 @@ O aceite deve incluir a repetição da mesma entrada: ela precisa produzir os me
 | Operação | Início, fim, duração, status e motivo da falha |
 | Publicação | Versão disponibilizada e data da última carga validada |
 
-O responsável, o local de armazenamento desses registros e o canal de alerta permanecem **a definir**. Veja os [riscos](riscos.md) e o [plano de validação](../projeto/plano-de-validacao.md).
+Os registros devem ser mantidos junto às execuções do pipeline, com alertas
+associados ao resultado da carga. Consulte também o
+[plano de validação](../projeto/plano-de-validacao.md).
 
 ## Controles adicionais de F4–F5
 

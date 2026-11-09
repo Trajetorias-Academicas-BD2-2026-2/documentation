@@ -94,8 +94,6 @@ analíticos em **Parquet** quando isso beneficiar as consultas e o processamento
 - Alterações no formato ou nas colunas dos datasets da UnB quebrarem o pipeline de ingestão.
 - Dependência da disponibilidade e da periodicidade de atualização de fontes externas.
 
-Veja também a página de [riscos](../pipeline/riscos.md).
-
 ## Como e quando revisitar
 
 A decisão deve ser reaberta se:

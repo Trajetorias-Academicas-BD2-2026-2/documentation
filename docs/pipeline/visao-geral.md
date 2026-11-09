@@ -51,7 +51,8 @@ As classificações ETL/ELT acima reproduzem a planilha. Na implementação, ser
 
 ## Onde cada etapa está detalhada
 
-Veja a página [Etapas](etapas.md), os critérios de [Qualidade e reprocessamento](qualidade.md) e os [Riscos](riscos.md) do pipeline.
+Veja a página [Etapas](etapas.md) e os critérios de
+[Qualidade e reprocessamento](qualidade.md) do pipeline.
 
 ## Extensão Inep
 

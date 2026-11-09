@@ -1,7 +1,7 @@
 # Pendências
 
-Itens marcados como **"A confirmar"** ou **"A definir"** na planilha de acompanhamento,
-mais pontos de alinhamento entre as abas. Marque as caixas conforme forem resolvidos.
+Esta página reúne os próximos passos técnicos e de validação do projeto.
+Marque as caixas conforme forem resolvidos.
 
 ## Prioridades para a próxima entrega
 
@@ -40,7 +40,7 @@ O [plano de validação](projeto/plano-de-validacao.md) detalha a ordem das entr
 ## Pipeline e responsáveis
 
 - [ ] Definir o responsável de cada etapa P1–P8 ([Etapas](pipeline/etapas.md))
-- [ ] Registrar os riscos na planilha (a aba mencionada no resumo está ausente) e revisar [Riscos](pipeline/riscos.md)
+- [ ] Revisar os controles de qualidade e reprocessamento com dados reais
 
 ## Decisão (ADR-001)
 
