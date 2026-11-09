@@ -1,0 +1,38 @@
+:root { --project-radius: 0.8rem; }
+.project-hero {
+  padding: clamp(1.2rem, 4vw, 2.5rem);
+  margin: 1rem 0 1.5rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--project-radius);
+  background: linear-gradient(130deg, rgba(0, 150, 136, 0.13), rgba(0, 188, 212, 0.04));
+}
+.project-eyebrow {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.md-typeset .project-hero h2 {
+  margin-top: 0.65rem;
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+  font-weight: 750;
+  line-height: 1.25;
+  max-width: 24em;
+  color: var(--md-default-fg-color);
+}
+.project-hero p { max-width: 48em; }
+.project-hero .md-button {
+  margin: 0.35rem 0.35rem 0 0;
+  border-radius: 0.4rem;
+}
+.md-typeset .grid.cards > ul > li { border-radius: var(--project-radius); }
+.md-typeset .project-stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.project-stats strong { font-size: 1.05rem; }
+.project-stats p { font-size: 0.75rem; }
+@media (max-width: 760px) {
+  .md-typeset .project-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 420px) {
+  .md-typeset .project-stats { grid-template-columns: 1fr; }
+  .project-hero .md-button { display: block; text-align: center; margin-right: 0; }
+}
