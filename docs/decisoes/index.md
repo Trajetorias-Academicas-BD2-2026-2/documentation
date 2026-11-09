@@ -7,6 +7,7 @@ seis meses, alguém entenda **por que** as coisas são como são.
 | ADR | Título | Status | Data |
 |---|---|---|---|
 | [ADR-001](adr-001-postgresql-parquet.md) | Adotar PostgreSQL como banco principal e Parquet como formato da camada analítica | Proposto | 02/09/2026 |
+| [ADR-003](adr-003-camada-analitica-observatorio-e3.md) | Adotar dbt e um observatório analítico para a E3 | Aceito | 08/11/2026 |
 
 ## Status possíveis
 
@@ -22,3 +23,6 @@ seis meses, alguém entenda **por que** as coisas são como são.
 4. Adicione a página em `nav` no `mkdocs.yml` e na tabela acima.
 
 [ADR-002 — Integração com o Inep](adr-002-integracao-inep.md): fontes F4/F5 e comparação entre cursos.
+
+[ADR-003 — Camada analítica e observatório](adr-003-camada-analitica-observatorio-e3.md):
+decisão da E3 sobre transformação, métricas e consumo.

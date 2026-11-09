@@ -101,6 +101,7 @@ nav:
       - Índice de ADRs: decisoes/index.md
       - "ADR-001: PostgreSQL + Parquet": decisoes/adr-001-postgresql-parquet.md
       - "ADR-002: Integração Inep": decisoes/adr-002-integracao-inep.md
+      - "ADR-003: Camada analítica e observatório": decisoes/adr-003-camada-analitica-observatorio-e3.md
   - Referência:
       - Origem e rastreabilidade: referencia/planilha.md
       - Pendências: pendencias.md
