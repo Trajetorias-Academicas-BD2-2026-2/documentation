@@ -1,74 +1,49 @@
-# Arquitetura proposta
+# Arquitetura
 
-A planilha propõe **PostgreSQL** para os relacionamentos e consultas SQL, **Parquet** para conjuntos analíticos e **Python** para coleta e transformação. O processamento acompanha as atualizações das fontes, em lote.
-
-!!! note "Proposta de organização"
-    A separação abaixo concilia os blocos da planilha e explicita pontos ainda abertos. Não representa infraestrutura implantada nem altera o status **proposto** do [ADR-001](../decisoes/adr-001-postgresql-parquet.md).
-
-## Camadas e responsabilidades
+Tudo roda com Docker Compose num único `docker compose up`. Os serviços e a ordem de execução estão em [`docker-compose.yml`](https://github.com/Trajetorias-Academicas-BD2-2026-2/Trajetorias-academicas/blob/main/docker-compose.yml).
 
 ```mermaid
 flowchart TB
-    subgraph fontes[Fontes externas]
-        F1[F1 · Alunos]
-        F2[F2 · Turmas]
-        F3[F3 · Componentes]
-        F4[F4 · Censo Inep]
-        F5[F5 · Trajetória Inep]
+    subgraph origem[Origem]
+        S[SIGAA<br/>páginas públicas] --> L[Lote versionado<br/>data/coleta_publica_2026-09-28<br/>CSV + SHA256SUMS]
     end
-    F1 --> C[P1–P3 e P9–P10 · Coleta]
-    F2 --> C
-    F3 --> C
-    F4 --> C
-    F5 --> C
-    C --> S3[(S3 · Originais CSV / JSON)]
-    S3 --> P4[P4 · Validação e limpeza]
-    P4 --> P5[P5 · Integração]
-    P5 --> S1[(S1 · PostgreSQL principal)]
-    S1 --> P6[P6 · Preparação analítica]
-    P6 --> S2[(S2 · PostgreSQL analítico)]
-    P6 --> PQ[Conjuntos Parquet]
-    S2 --> P7[P7 · Indicadores]
-    PQ -. Leitura a validar na PoC .-> P7
-    P7 --> P8[P8 · Dashboard]
-    P8 --> U[Coordenação / ingressantes]
+    subgraph oltp[Sistema de origem]
+        L --> LD[loader<br/>confere checksum e recorte]
+        M[migrate<br/>V001–V011] --> PG
+        LD --> PG[(PostgreSQL 16<br/>schema public<br/>insert-only)]
+        PG --> OB[(e2_cdc_outbox)]
+    end
+    subgraph aberto[Armazenamento analítico aberto · E2]
+        L --> B[batch_to_delta.py] --> BD[(Parquet zstd + Delta<br/>analytical/batch)]
+        OB --> C[cdc_consumer.py<br/>MERGE por chave] --> CD[(Delta<br/>analytical/cdc)]
+    end
+    subgraph analitica[Camada analítica · E3]
+        PG --> DBT[dbt: snapshot, staging,<br/>estrela, marts, testes]
+        DBT --> AN[(schema analytics)]
+    end
+    subgraph consumo[Consumo]
+        AN --> P[Painel :8080]
+        AN --> R[ETL reverso<br/>operations.alertas_reserva]
+        AN --> V[Camada vetorial<br/>pgvector, opcional]
+    end
 ```
 
-| Camada | Responsabilidade | Critério de saída proposto |
+| Serviço | Papel | Detalhe |
 |---|---|---|
-| Bruta — S3 | Preservar o arquivo recebido e sua identificação de origem | Download íntegro, versão e data da coleta registradas |
-| Tratamento — P4 | Padronizar tipos, identificar duplicatas e separar inconsistências | Relatório de qualidade por fonte |
-| Integrada — S1 | Representar as entidades e preservar vínculos validados | Chaves e relacionamentos verificados |
-| Analítica — S2 e Parquet | Preparar recortes e agregações para as perguntas do projeto | Indicadores conciliados com os dados de entrada |
-| Consumo — P8 | Apresentar filtros, resultados e atualização dos dados | Exibir somente uma versão validada da carga |
+| `db` | PostgreSQL 16 com pgvector | [Modelo OLTP](../dados/modelo-oltp.md) |
+| `migrate` | Aplica `db/migrations/V*.sql` em ordem, cada uma numa transação | [Modelo OLTP](../dados/modelo-oltp.md) |
+| `loader` | Confere o lote por SHA-256, valida o recorte e carrega numa transação | [Fonte e coleta](../dados/fonte-e-coleta.md) |
+| `e2-batch`, `e2-cdc` | Lote para Parquet/Delta e consumidor da outbox (perfil `e2`) | [Ingestão](../pipeline/ingestao.md) |
+| `analytics` | `dbt source freshness`, `dbt build`, ETL reverso | [Camada analítica](../dados/camada-analitica.md) |
+| `dashboard` | Painel do observatório | [Painel](../consumo/painel.md) |
+| `tests`, `analytics-tests`, `ml`, `ml-tests` | Testes de dados e camada vetorial (perfis `test` e `ml`) | [Qualidade](../pipeline/qualidade.md) |
 
-## PostgreSQL e Parquet: divisão proposta
+## Escolhas que definem a arquitetura
 
-**PostgreSQL principal (S1)** mantém os dados integrados e suas restrições. A aba 4 o classifica como OLTP; a carga real ainda precisa ser avaliada, pois o pipeline descrito é predominantemente em lote.
-
-**PostgreSQL analítico (S2)** é o destino proposto para tabelas ou visões usadas pelo dashboard. A separação é lógica neste desenho: schemas, bancos ou instâncias separados ainda precisam ser escolhidos conforme a prova de conceito e os recursos disponíveis.
-
-**Parquet** armazena conjuntos tratados e exportações analíticas para processamento em Python e comparação de desempenho. O leitor e as consultas que acessarão esses arquivos diretamente ainda estão a definir. O formato, por si só, não define o serviço de consulta.
-
-## Preservação dos dados brutos
-
-O bloco de cargas e as etapas de coleta pedem preservação dos originais; o texto do ADR também menciona brutos em Parquet. A proposta desta documentação é **manter o original em CSV/JSON e produzir Parquet como derivado**, permitindo repetir a transformação. Esse alinhamento precisa ser confirmado pela equipe antes da aceitação do ADR.
-
-## Atualização e falhas
-
-Uma nova coleta deve gerar uma versão identificável dos dados. As validações de P4–P7 precedem a disponibilização ao dashboard. Se uma execução falhar, a proposta é manter a última versão validada e informar sua data, em vez de expor uma carga parcial.
-
-Os controles estão em [Qualidade e reprocessamento](../pipeline/qualidade.md). As metas de latência da planilha estão em [Cargas e engines](../dados/cargas-e-engines.md) e ainda não são resultados medidos.
-
-## Integração da extensão Inep
-
-F4 e F5 entram por P9 e P10 e convergem em P4–P7, sem mudar os IDs originais.
-`scripts/inep_pipeline.py` implementa coleta, inspeção, normalização, manifesto,
-relatório de qualidade e geração de SQL. As cargas no PostgreSQL são transacionais.
-O schema `inep` preserva a separação entre agregados anuais e dados locais semestrais.
-CSV e SQL são produzidos nesta versão; Parquet continua como exportação opcional.
-[Como executar](../pipeline/execucao-inep.md).
-
-A extensão foi verificada com dados sintéticos. Cargas oficiais, benchmark e
-conexão às telas do dashboard da equipe permanecem pendentes por falta de dados
-e código do dashboard no pacote recebido.
+| Escolha | Por quê | Registro |
+|---|---|---|
+| Lote versionado no repositório, não raspagem a cada carga | O SIGAA muda de layout e cai; o lote tem 903 kB e reproduz o mesmo banco offline | [ADR-0004](../decisoes/0004-coleta-publica-versionada.md) |
+| OLTP insert-only para turma e reserva | A pergunta compara semestres; sobrescrever apagaria o passado | [ADR-0003](../decisoes/0003-reservas-por-curso-e-curriculo-versionado.md) |
+| CDC por outbox transacional, não Debezium | Recarga leva menos de 3 s e o dado muda uma vez por semestre; outbox mostra a mudança sem Kafka | [ADR-0005](../decisoes/0005-ingestao-e2.md) |
+| Delta Lake, não Iceberg | Commit atômico sem catálogo e MERGE no cliente Python | [ADR-0005](../decisoes/0005-ingestao-e2.md) |
+| Estrela em dbt, orquestrada por script + cron | Uma fonte, esquema estável, pipeline linear de 20 s | [ADR-0006](../decisoes/0006-camada-analitica-observatorio-e3.md) |
