@@ -10,8 +10,9 @@ qualidade, governança e busca semântica.
 |---|---|
 | Transformação | dbt |
 | Banco | PostgreSQL |
-| Fato | `fct_reservas` |
-| Mart | `mart_observatorio` |
+| Fato | `fct_reservas` (uma linha por turma e curso, incremental por semestre) |
+| Dimensões | `dim_curso`, `dim_semestre`, `dim_disciplina` (SCD 2), `dim_curriculo_componente` (SCD 2) |
+| Marts | `mart_observatorio`, `mart_disciplina_semestre`, `mart_cobertura_curriculo` |
 | Dashboard | Observatório de reservas |
 | Vetores | pgvector |
 
@@ -62,13 +63,14 @@ disciplinas obrigatórias e 79 turmas. Isso não significa 3.816 alunos.
 
 | Controle | Resultado |
 |---|---|
-| Testes dbt | 18 aprovados |
-| Freshness | Validada |
-| Retry | Recuperação após falha controlada |
-| Backfill | 2024.1 reprocessado sem duplicidade |
+| Testes dbt | 45 testes; `dbt build` com PASS=57 WARN=1 ERROR=0 |
+| Dimensões de variação lenta | `dim_disciplina` (snapshot) e natureza curricular por versão |
+| Freshness | `metricas_freshness`, SLA de 24 h testado |
+| Retry | Banco derrubado de propósito: falha, nova tentativa, sucesso |
+| Backfill | Só a janela 2024.1 reprocessada (174 linhas), contagens iguais |
 | ETL reverso | 113 registros |
 | Acesso | `dashboard_reader` com privilégio mínimo |
-| Performance | `EXPLAIN` antes e depois |
+| Performance | `EXPLAIN (ANALYZE, BUFFERS)` do q0: 5.721 → 188 buffers |
 
 ## Camada vetorial
 
@@ -117,16 +119,16 @@ arquivos → PostgreSQL → dbt/mart/dashboard
 | Nomes de disciplinas | Embeddings e HNSW | Busca vetorial |
 
 Foram validados checksums, chaves, unicidade, volume, distribuição,
-freshness, dimensão dos vetores e norma unitária. Os testes dbt tiveram 18
-aprovações; a camada vetorial cobriu 100% das 72 disciplinas do fato.
+freshness, dimensão dos vetores e norma unitária. Os 45 testes dbt passaram, com um aviso esperado de salto de série; a camada vetorial cobriu 100% das 72 disciplinas do fato.
 
 ## Operação e governança
 
 O projeto inclui retry para falhas transitórias, backfill por semestre, ETL
 reverso para 113 alertas, catálogo, linhagem e acesso mínimo pelo papel
-`dashboard_reader`. Os planos `EXPLAIN` foram registrados antes e depois dos
-índices; como o volume atual é pequeno, o ganho de performance não foi
-significativo.
+`dashboard_reader`. O `EXPLAIN (ANALYZE, BUFFERS)` da consulta da pergunta
+mostrou um erro de estimativa num CTE; a reescrita reduziu a leitura de 5.721
+para 188 buffers com o mesmo resultado, e um índice duplicado da chave
+primária foi removido.
 
 As decisões de arquitetura estão documentadas nos ADRs de modelagem, coleta,
 ingestão e camada analítica.
@@ -138,4 +140,6 @@ referência é o de 2026.1, o dashboard é uma demonstração local e a camada
 vetorial complementa, mas não substitui, o modelo relacional.
 
 A Entrega 3 disponibiliza um observatório analítico reproduzível, com
-transformações testadas, métricas documentadas, governança e busca semântica.
+transformações testadas, histórico de dimensões, orquestração com retry e
+backfill, métricas documentadas, governança e busca semântica. Detalhes por
+entrega em [E1](entregas/e1.md), [E2](entregas/e2.md) e [E3](entregas/e3.md).
