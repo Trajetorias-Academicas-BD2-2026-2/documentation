@@ -20,6 +20,8 @@ flowchart LR
 - **Retry:** uma etapa repete até `RETRIES` vezes (padrão 3), esperando `BACKOFF`, 2×`BACKOFF`… segundos.
 - **Desistência:** esgotadas as tentativas, o script sai com código 1 e as etapas seguintes não rodam.
 
+**Execução agendada na nuvem:** o workflow `Publicar painel` do GitHub Actions roda o pipeline completo e os testes toda segunda às 06:00 UTC, e só publica o painel se tudo passar. O histórico de execuções fica na aba **Actions** do repositório.
+
 **Agendamento:** [`orchestration/crontab`](https://github.com/Trajetorias-Academicas-BD2-2026-2/Trajetorias-academicas/blob/main/orchestration/crontab) roda todo dia às 02:00, com log em `logs/pipeline.log`.
 
 **Por que script + cron (a opção nula) e não Airflow ou Dagster:** o grafo é linear, tem 5 etapas, roda uma vez por dia e leva cerca de 20 s. Um orquestrador somaria scheduler, webserver e banco de metadados ao Compose. Gatilho de revisão: mais de 10 etapas, dependências não lineares ou necessidade de histórico de execuções ([ADR-0006](../decisoes/0006-camada-analitica-observatorio-e3.md)).

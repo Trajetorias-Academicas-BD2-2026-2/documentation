@@ -15,6 +15,7 @@ Uma plataforma de dados que coleta as páginas públicas do SIGAA, guarda o hist
 
 [Entender o projeto](projeto/visao-geral.md){ .md-button .md-button--primary }
 [Ver as entregas](entregas/e1.md){ .md-button }
+[Abrir o painel](https://trajetorias-academicas-bd2-2026-2.github.io/Trajetorias-academicas/){ .md-button }
 [Código no GitHub](https://github.com/Trajetorias-Academicas-BD2-2026-2/Trajetorias-academicas){ .md-button }
 
 </div>

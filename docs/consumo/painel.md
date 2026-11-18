@@ -1,6 +1,6 @@
 # Painel
 
-O serviço `dashboard` publica o observatório em `http://localhost:8080`. O painel conta a resposta à pergunta da E1 como uma **história em sete cenas**, que se revelam com a rolagem. O texto é para qualquer pessoa, sem termo técnico.
+O painel está publicado em <https://trajetorias-academicas-bd2-2026-2.github.io/Trajetorias-academicas/> e, localmente, o serviço `dashboard` o serve em `http://localhost:8080`. O painel conta a resposta à pergunta da E1 como uma **história em sete cenas**, que se revelam com a rolagem. O texto é para qualquer pessoa, sem termo técnico.
 
 ![Painel do observatório, todas as cenas](../assets/painel.png)
 
@@ -39,6 +39,18 @@ A metáfora central é a **cadeira de sala de aula**. Uma vaga reservada vira "u
   - respeita "reduzir movimento" do sistema;
   - cada ilustração tem descrição em texto com o número que mostra;
   - se adapta a partir de 360 px de largura.
+
+## Publicação
+
+A versão pública é estática. O workflow `.github/workflows/painel.yml` do repositório do código segue cinco passos:
+
+1. sobe o pipeline no GitHub Actions;
+2. roda os testes de dados;
+3. salva o JSON da API em `observatorio.json`;
+4. confere o JSON;
+5. publica a página no GitHub Pages.
+
+A página tenta a API e, se não houver servidor, lê o arquivo. Nada de banco ou senha fica exposto. O painel atualiza a cada push na `main` que mude o pipeline, toda segunda às 06:00 UTC ou à mão, em **Actions → Publicar painel**.
 
 ## Implementação
 
