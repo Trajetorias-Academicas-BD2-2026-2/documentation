@@ -10,8 +10,9 @@ Um ADR registra uma decisão com contexto, alternativas, medição e consequênc
 | [ADR-0004](0004-coleta-publica-versionada.md) | Carga a partir de um lote versionado e conferido por checksum | E1 | Aceito |
 | [ADR-0005](0005-ingestao-e2.md) | Lote idempotente por partição e CDC por outbox transacional | E2 | Aceito |
 | [ADR-0006](0006-camada-analitica-observatorio-e3.md) | Esquema estrela em dbt, fato por turma e curso, orquestrado por script com cron | E3 | Aceito |
+| [ADR-0007](0007-disponibilizacao-e4.md) | Camada semântica MetricFlow, cópia por arquivo, ETL reverso por API com fila de envio | E4 | Aceito |
 
-Os ADR-0001 e 0002 foram substituídos antes da carga real e ficam como registro.
+Os ADR-0001 e 0002 foram substituídos antes da carga real e ficam como registro. A releitura de cada gatilho de revisão na E4 (disparou? o que foi feito?) está no [portfólio](portfolio.md).
 
 ## Como criar um novo ADR
 

@@ -1,5 +1,24 @@
 # Histórico
 
+## 2.1 — 18/11/2026 (E4)
+
+- **Novas páginas:**
+  - Entrega E4;
+  - Camada semântica;
+  - ETL reverso (Pauta da coordenação);
+  - LGPD;
+  - Catálogo e linhagem;
+  - ADR-0007;
+  - Portfólio de ADRs com a revisão dos gatilhos;
+  - Retrospectiva do ciclo de vida;
+  - Roteiro da defesa e Perguntas da banca.
+- **Páginas atualizadas:**
+  - Governança e acesso, com os papéis com privilégio mínimo, o RLS por curso e o recorte de coluna;
+  - Painel, com a origem de cada número;
+  - Capa (card E4) e diário (semanas 14–16);
+  - ADR-0005, com a revisão de minimização.
+
+
 ## 2.0 — 17/11/2026
 
 O site passa a descrever o projeto implementado, não o plano inicial.

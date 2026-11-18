@@ -52,6 +52,10 @@ A versão pública é estática. O workflow `.github/workflows/painel.yml` do re
 
 A página tenta a API e, se não houver servidor, lê o arquivo. Nada de banco ou senha fica exposto. O painel atualiza a cada push na `main` que mude o pipeline, toda segunda às 06:00 UTC ou à mão, em **Actions → Publicar painel**.
 
+## De onde vêm os números
+
+Os números de topo de cada cena (lugares guardados, turmas, parte de fora da FCTE, cobertura do currículo) vêm de `analytics.metricas_oficiais`, gerada pela [camada semântica](../dados/camada-semantica.md). O painel não recalcula métrica. A lista "Vale conferir" mostra os mesmos itens enviados à [Pauta da coordenação](etl-reverso.md). O rodapé traz a definição oficial de cada número, lida do mesmo YAML. Localmente, o painel conecta com o papel `painel`, que não tem acesso ao OLTP.
+
 ## Implementação
 
 - [`dashboard/app.py`](https://github.com/Trajetorias-Academicas-BD2-2026-2/Trajetorias-academicas/blob/main/dashboard/app.py) serve a página e `GET /api/observatorio`, um JSON com os dados das cenas. Ele lê só a camada de consumo.

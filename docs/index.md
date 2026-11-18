@@ -62,6 +62,14 @@ Vaga reservada **não é** vaga ocupada nem oferta total da turma: é o campo "V
 
     [Entrega E3](entregas/e3.md)
 
+- :material-shield-check-outline: **E4 · Disponibilização e governança**
+
+    ---
+
+    Uma definição por métrica (MetricFlow), ETL reverso para a Pauta da coordenação, RLS por curso, LGPD, catálogo publicado e defesa.
+
+    [Entrega E4](entregas/e4.md)
+
 </div>
 
 ## O caminho do dado
@@ -73,8 +81,9 @@ flowchart LR
     C -->|outbox| D[(Delta Lake<br/>analytical/cdc)]
     B -->|lote| E[(Parquet + Delta<br/>analytical/batch)]
     C --> F[dbt: staging, estrela, marts]
-    F --> G[Painel]
-    F --> H[ETL reverso]
+    F --> M[[Camada semântica<br/>MetricFlow]]
+    M --> G[Painel]
+    M --> H[ETL reverso → Pauta da coordenação]
     F --> I[Busca vetorial]
 ```
 

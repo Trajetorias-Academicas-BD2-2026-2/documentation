@@ -11,3 +11,8 @@ Registro semanal da Squad: o que foi medido, o que surpreendeu, o que foi decidi
 | 11 | 20/10 a 26/10 | Granularidade do fato: uma linha por turma e curso | [semana-11](https://github.com/Trajetorias-Academicas-BD2-2026-2/Trajetorias-academicas/blob/main/docs/diario/semana-11.md) |
 | 12 | 27/10 a 02/11 | Marts com freshness; retry no script do pipeline | [semana-12](https://github.com/Trajetorias-Academicas-BD2-2026-2/Trajetorias-academicas/blob/main/docs/diario/semana-12.md) |
 | 13 · **E3** | 03/11 a 09/11 | Observatório publicado. A revisão de 17/11 acrescentou SCD, backfill real, retry com o banco derrubado e o EXPLAIN de 5.721 para 188 buffers | [semana-13](https://github.com/Trajetorias-Academicas-BD2-2026-2/Trajetorias-academicas/blob/main/docs/diario/semana-13.md) |
+| 14 | 10/11 a 16/11 | Camada vetorial na main; roteiro da E3 | [semana-14](https://github.com/Trajetorias-Academicas-BD2-2026-2/Trajetorias-academicas/blob/main/docs/diario/semana-14.md) |
+| 15 | 17/11 a 23/11 | Revisão de E1–E3; painel no Pages; E4: semântica, Pauta, RLS, LGPD (achou nomes de docente no Delta) | [semana-15](https://github.com/Trajetorias-Academicas-BD2-2026-2/Trajetorias-academicas/blob/main/docs/diario/semana-15.md) |
+| 16 · **E4** | 24/11 | Entrega e defesa (registro após a defesa) | [semana-16](https://github.com/Trajetorias-Academicas-BD2-2026-2/Trajetorias-academicas/blob/main/docs/diario/semana-16.md) |
+
+A [retrospectiva do ciclo de vida](retrospectiva.md) fecha o diário.

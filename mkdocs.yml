@@ -88,11 +88,13 @@ nav:
       - "E1 · Fonte transacional": entregas/e1.md
       - "E2 · Ingestão e CDC": entregas/e2.md
       - "E3 · Camada analítica": entregas/e3.md
+      - "E4 · Disponibilização e governança": entregas/e4.md
   - Dados:
       - Fonte e coleta: dados/fonte-e-coleta.md
       - Modelo OLTP: dados/modelo-oltp.md
       - Carga de trabalho: dados/carga-de-trabalho.md
       - Camada analítica: dados/camada-analitica.md
+      - Camada semântica: dados/camada-semantica.md
   - Pipeline:
       - Ingestão: pipeline/ingestao.md
       - Orquestração: pipeline/orquestracao.md
@@ -100,17 +102,26 @@ nav:
       - Desempenho: pipeline/desempenho.md
   - Consumo:
       - Painel: consumo/painel.md
-      - Governança: consumo/governanca.md
+      - "ETL reverso: Pauta da coordenação": consumo/etl-reverso.md
+      - Governança e acesso: consumo/governanca.md
+      - LGPD: governanca/lgpd.md
+      - Catálogo e linhagem: governanca/catalogo-e-linhagem.md
   - Decisões:
       - Índice de ADRs: decisoes/index.md
+      - "Portfólio e revisão dos gatilhos": decisoes/portfolio.md
       - "ADR-0001: Modelagem inicial (substituído)": decisoes/0001-modelagem-fonte-origem.md
       - "ADR-0002: Extração por navegador (substituído)": decisoes/0002-extracao-via-navegador-real.md
       - "ADR-0003: Reservas e currículo versionado": decisoes/0003-reservas-por-curso-e-curriculo-versionado.md
       - "ADR-0004: Lote versionado": decisoes/0004-coleta-publica-versionada.md
       - "ADR-0005: Ingestão da E2": decisoes/0005-ingestao-e2.md
       - "ADR-0006: Camada analítica da E3": decisoes/0006-camada-analitica-observatorio-e3.md
+      - "ADR-0007: Disponibilização da E4": decisoes/0007-disponibilizacao-e4.md
   - Referência:
       - Diário de bordo: referencia/diario.md
+      - Retrospectiva do ciclo de vida: referencia/retrospectiva.md
       - Glossário: glossario.md
       - Como contribuir: como-contribuir.md
-  - Apresentação: apresentacao.md
+  - Defesa:
+      - Roteiro (20 min): defesa/roteiro.md
+      - Perguntas da banca: defesa/perguntas.md
+      - Apresentação da E3: apresentacao.md
