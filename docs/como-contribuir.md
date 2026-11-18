@@ -39,10 +39,9 @@ O modo `--strict` transforma avisos (links quebrados, páginas fora do `nav`) em
 
 ## 4. Manter o conteúdo consistente
 
-- Diferencie respostas da planilha, propostas novas e resultados medidos; consulte [Origem e rastreabilidade](referencia/planilha.md).
-- Preserve os IDs de fontes, conjuntos, armazenamentos e etapas para manter os vínculos entre páginas.
-- Atualize [pendências](pendencias.md) e ADRs quando a equipe confirmar uma escolha.
-- Registre fonte, período, método e data ao adicionar números ou benchmarks.
+- O repositório do código é a fonte: ADRs, evidências e números vêm de lá. Ao mudar um ADR no código, copie-o para `docs/decisoes/` (veja o [índice de ADRs](decisoes/index.md)).
+- Número sem fonte não entra: aponte o script, a evidência em `docs/evidencias/` ou a consulta que o gerou.
+- Atualize a página da entrega correspondente ([E1](entregas/e1.md), [E2](entregas/e2.md), [E3](entregas/e3.md)) quando uma evidência mudar.
 - Confira páginas e diagramas no modo claro, no modo escuro e em uma janela estreita.
 
 ## 5. Publicar

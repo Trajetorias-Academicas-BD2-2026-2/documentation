@@ -1,5 +1,5 @@
-site_name: Trajetórias Acadêmicas UnB
-site_description: Documentação de engenharia de dados do projeto Trajetórias Acadêmicas UnB (BD2 / FCTE-UnB)
+site_name: Observatório de reservas FCTE · Trajetórias Acadêmicas
+site_description: Plataforma de dados sobre as vagas reservadas pelas turmas da UnB aos cursos de engenharia da FCTE (BD2 / FCTE-UnB, Squad G2)
 site_url: https://trajetorias-academicas-bd2-2026-2.github.io/documentation/
 repo_url: https://github.com/Trajetorias-Academicas-BD2-2026-2/documentation
 repo_name: Trajetorias-Academicas-BD2-2026-2/documentation
@@ -83,28 +83,34 @@ nav:
   - Início: index.md
   - Projeto:
       - Visão geral: projeto/visao-geral.md
-      - Perguntas e indicadores: projeto/indicadores.md
-      - Arquitetura proposta: projeto/arquitetura.md
-      - Plano de validação: projeto/plano-de-validacao.md
+      - Arquitetura: projeto/arquitetura.md
+  - Entregas:
+      - "E1 · Fonte transacional": entregas/e1.md
+      - "E2 · Ingestão e CDC": entregas/e2.md
+      - "E3 · Camada analítica": entregas/e3.md
   - Dados:
-      - Fontes de dados: dados/fontes.md
-      - Integração Inep: dados/integracao-inep.md
-      - Formatos de armazenamento: dados/formatos.md
-      - Modelo de dados: dados/modelo-de-dados.md
-      - Cargas e engines: dados/cargas-e-engines.md
+      - Fonte e coleta: dados/fonte-e-coleta.md
+      - Modelo OLTP: dados/modelo-oltp.md
+      - Carga de trabalho: dados/carga-de-trabalho.md
+      - Camada analítica: dados/camada-analitica.md
   - Pipeline:
-      - Visão geral: pipeline/visao-geral.md
-      - Etapas: pipeline/etapas.md
-      - Executar extensão Inep: pipeline/execucao-inep.md
-      - Qualidade e reprocessamento: pipeline/qualidade.md
+      - Ingestão: pipeline/ingestao.md
+      - Orquestração: pipeline/orquestracao.md
+      - Qualidade e testes: pipeline/qualidade.md
+      - Desempenho: pipeline/desempenho.md
+  - Consumo:
+      - Painel: consumo/painel.md
+      - Governança: consumo/governanca.md
   - Decisões:
       - Índice de ADRs: decisoes/index.md
-      - "ADR-001: PostgreSQL + Parquet": decisoes/adr-001-postgresql-parquet.md
-      - "ADR-002: Integração Inep": decisoes/adr-002-integracao-inep.md
-      - "ADR-003: Camada analítica e observatório": decisoes/adr-003-camada-analitica-observatorio-e3.md
+      - "ADR-0001: Modelagem inicial (substituído)": decisoes/0001-modelagem-fonte-origem.md
+      - "ADR-0002: Extração por navegador (substituído)": decisoes/0002-extracao-via-navegador-real.md
+      - "ADR-0003: Reservas e currículo versionado": decisoes/0003-reservas-por-curso-e-curriculo-versionado.md
+      - "ADR-0004: Lote versionado": decisoes/0004-coleta-publica-versionada.md
+      - "ADR-0005: Ingestão da E2": decisoes/0005-ingestao-e2.md
+      - "ADR-0006: Camada analítica da E3": decisoes/0006-camada-analitica-observatorio-e3.md
   - Referência:
-      - Origem e rastreabilidade: referencia/planilha.md
-      - Pendências: pendencias.md
+      - Diário de bordo: referencia/diario.md
       - Glossário: glossario.md
       - Como contribuir: como-contribuir.md
   - Apresentação: apresentacao.md
